@@ -3,7 +3,8 @@ on:
   push:
     branches:
       - main
-
+    paths-ignore:
+      - .github/workflows/destroy.yml
 jobs:
 
   plan:

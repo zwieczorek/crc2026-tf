@@ -39,7 +39,7 @@ jobs:
       - name: "Terraform Validate"
         id: validate
         run: |
-          terraform init -backend=false \
+          terraform init -backend=false
           terraform validate
 
 

@@ -36,12 +36,6 @@ jobs:
 
 # Validate step cna be omitted or must be used with terraform init -backend=false
 # https://developer.hashicorp.com/terraform/cli/commands/validate#introduction
-      - name: "Terraform Validate"
-        id: validate
-        run: |
-          terraform init -backend=false
-          terraform validate
-
 
       - name: "Terraform Plan"
         id: plan

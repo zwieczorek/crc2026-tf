@@ -5,6 +5,7 @@ on:
       - main
 
 jobs:
+
   plan:
     name: "Terraform Plan"
     runs-on: ubuntu-latest
@@ -32,11 +33,10 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          TF_VAR_user_object_id: ${{ vars.TF_VAR_USER_OBJECT_ID }}
 
       - name: "Terraform Validate"
         id: validate
-        run: terraform validate -no-color
+        run: terraform validate
 
       - name: "Terraform Plan"
         id: plan
@@ -79,7 +79,6 @@ jobs:
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-          TF_VAR_user_object_id: ${{ vars.TF_VAR_USER_OBJECT_ID }}
 
       - name: "Download Plan"
         uses: actions/download-artifact@v4
